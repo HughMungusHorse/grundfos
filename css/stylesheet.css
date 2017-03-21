@@ -42,7 +42,7 @@ nav ul li {
     text-align: center;
 }
 
-nav ul li p {
+nav ul li a {
     font-size: 18px;
     text-decoration: none;
     -webkit-touch-callout: none;
@@ -53,17 +53,33 @@ nav ul li p {
     user-select: none;
 }
 
-nav ul li:nth-child(1) {
+.pump0 {
     background-color: #003768;
+}
+
+.pump0 a {
     color: white;
 }
 
-nav ul li:nth-child(2) {
+.pump1 a {
     color: #003768;
+}
+
+.oversigt0 a {
+    color: #003768;
+}
+
+.oversigt1 {
+    background-color: #003768;
+}
+
+.oversigt1 a {
+    color: white;
 }
 
 #wrapper {
     width: 500px;
+    height: 530px;
     margin: 0 auto;
     text-align: center;
     border: 1px solid #003768;
@@ -76,14 +92,33 @@ nav ul li:nth-child(2) {
     font-size: 18px;
 }
 
-#form table {
+.ftable {
     width: 100%;
     height: 400px;
     margin-top: -50px;
 }
 
+.otable {
+    width: 100%;
+    height: 400px;
+    margin-top: -130px;
+}
+
 #form td {
     color: #003768
+}
+
+td span {
+    float: right;
+    width: 20px;
+    height: 20px;
+    color: white;
+    background-color: #003768;
+    border-radius: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 16px;
 }
 
 #form td input {
@@ -136,4 +171,66 @@ nav ul li:nth-child(2) {
 #forside a:hover {
     color: white;
     background-color: #003768;
+}
+
+#login0 {
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp0 {
+    width: 200px;
+    height: 30px;
+}
+
+.inp1 {
+    width: 200px;
+    height: 30px;
+}
+
+.inp2 {
+    width: 100px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.bruger0 {
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav_wrap ul ul {
+    display: none;
+    position: absolute;
+    background: #003768;
+    margin-top: 10px;
+    margin-left: -2px;
+}
+
+#nav_wrap ul ul li {
+    float: none;
+    width: 200px;
+}
+
+#nav_wrap ul ul li a {
+    line-height: 120%;
+    padding: 10px 15px;
+}
+
+#nav_wrap ul li:hover > ul {
+    display: block;
+}
+
+#nav_wrap ul ul li:hover {
+    background-color: rgba(49, 123, 190, 0.74);
 }

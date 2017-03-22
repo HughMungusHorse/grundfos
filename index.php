@@ -1,5 +1,8 @@
 <?php include'header.php' ?>
     <main>
+        <header>
+            <a href="index.php"><img class="logo" src="img/logo.png" alt="grundfos green logo"></a>
+        </header>
         <div id="login0">
             <div>
                 <form action="forside.php" method="POST">

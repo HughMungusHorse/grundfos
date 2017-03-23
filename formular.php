@@ -1,7 +1,7 @@
 <?php include'header.php' ?>
     <main>
         <header>
-            <a href="forside.php"><img class="logo" src="img/logo.png" alt="grundfos green logo"></a>
+            <a href="formular.php"><img class="logo" src="img/logo.png" alt="grundfos green logo"></a>
         </header>
         <nav>
             <ul>
@@ -10,52 +10,89 @@
             </ul>
         </nav>
         <article id="wrapper">
-            <form id="form">
+            <form id="form" method="POST">
                 <table class="ftable">
+                     <tr>
+                        <td>Pumpe ID:<span class="tooltip">?
+                        <span class="tooltiptext">Tilføj et personligt navn til din pumpe.</span> </span>
+                        </td>
+                        <td>
+                            <input type="text" name="name" required> </td>
+                        <br> </tr>
                     <tr>
                         <td>Produktserie:<span class="tooltip">?
                         <span class="tooltiptext">Her indtastes hvilken serie produktet er i, fx "ALPHA2"</span> </span>
                         </td>
                         <td>
-                            <input id="pumpetype" type="text" name="Pumpe_ID"> </td>
+                            <input id="pumpetype" type="text" name="type_name" required> </td>
                         <br> </tr>
                     <tr>
-                        <td>Serie nr::<span class="tooltip">?
-                        <span class="tooltiptext">Her indtastes pumpens serienummer - Serienummeret ser fx således ud: "521258 PN". </span> </span>
+                        <td>Serie nr:<span class="tooltip">?
+                        <span class="tooltiptext">Her indtastes pumpens serienummer -  fx: "521258 PN". </span> </span>
                         </td>
                         <td>
-                            <input id="serienr" type="text" name="Serie_nr"> </td>
+                            <input id="serienr" type="text" name="serial" required> </td>
                         <br> </tr>
                     <tr>
-                        <td>Firmanavn::<span class="tooltip">?
+                        <td>Firmanavn:<span class="tooltip">?
                         <span class="tooltiptext">Her indtastes navnet på firmaet.</span> </span>
                         </td>
                         <td>
-                            <input type="text" name="Firmanavn"> </td>
+                            <input type="text" name="company" required> </td>
                         <br> </tr>
                     <tr>
-                        <td>Adresse::<span class="tooltip">?
+                        <td>Adresse:<span class="tooltip">?
                         <span class="tooltiptext">Her indtastes adressen hvorpå pumpen er installeret.</span> </span>
                         </td>
                         <td>
-                            <input id="adresse" type="text" name="Adresse">
+                            <input id="adresse" type="text" name="adresse" required>
                             <br> </tr>
                     <tr>
-                        <td>Placering::<span class="tooltip">?
-                        <span class="tooltiptext">Her indtastes pumpens fysiske placering, fx er den placeret i kælderen, indtastes "kælder"</span> </span>
+                        <td>Placering:<span class="tooltip">?
+                        <span class="tooltiptext">Her indtastes pumpens fysiske placering, fx "Kælderen. Rum 26"</span> </span>
                         </td>
                         <td>
-                            <input type="text" name="Placering">
+                            <input type="text" name="placering" required>
                             <br> </tr>
                     <tr>
-                        <td>Fabrikationsdato::<span class="tooltip">?
+                        <td>Fabrikationsdato:<span class="tooltip">?
                         <span class="tooltiptext">Indtast pumpens fabrikationsdato </span> </span>
                         </td>
                         <td>
-                            <input id="datovælger" type="text" name="Fabrikationsdato">
+                            <input id="datovælger" type="text" name="dato" required>
                             <br> </tr>
                 </table>
+                 <input type="submit" value="Submit" id="submit" name="submit">
             </form>
-            <input type="submit" value="Submit" id="submit"> </article>
+            </article>
     </main>
-    <?php include'footer.php' ?>
+    <?php 
+if(isset($_POST["submit"])){
+$servername = "localhost";
+$username = "admin";
+$password = "";
+$dbname = "pumper";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "INSERT INTO pumps (id_name, serial_number, type, placement, address, company_name, date) 
+    
+    VALUES ('".$_POST["name"]."','".$_POST["type_name"]."','".$_POST["serial"]."','".$_POST["company"]."','".$_POST["adresse"]."','".$_POST["placering"]."','".$_POST["dato"]."')"; 
+    
+        // use exec() because no results are returned
+    $conn->exec($sql);
+    
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+}
+
+$conn = null;
+    
+
+    include'footer.php' ?>

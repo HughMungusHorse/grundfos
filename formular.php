@@ -80,7 +80,7 @@ try {
 
     $sql = "INSERT INTO pumps (id_name, serial_number, type, placement, address, company_name, date) 
     
-    VALUES ('".$_POST["name"]."','".$_POST["type_name"]."','".$_POST["serial"]."','".$_POST["company"]."','".$_POST["adresse"]."','".$_POST["placering"]."','".$_POST["dato"]."')"; 
+    VALUES ('".$_POST["name"]."','".$_POST["serial"]."','".$_POST["type_name"]."','".$_POST["placering"]."','".$_POST["adresse"]."','".$_POST["company"]."','".$_POST["dato"]."')"; 
     
         // use exec() because no results are returned
     $conn->exec($sql);

@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #ededed;
+    background-color: #ffffff;
     font-family: 'open sans';
     font-weight: 100;
 }
@@ -89,6 +89,7 @@ nav ul li a {
     margin: 0 auto;
     text-align: center;
     border: 1px solid #003768;
+    background-color:#f5f5f5
 }
 
 #form {
@@ -253,6 +254,7 @@ td span {
     padding: 15px;
     position: absolute;
     z-index: 1;
+
 }
 
 .tooltip:hover .tooltiptext {

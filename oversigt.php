@@ -123,6 +123,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $(".oversigt1 ul li").click(function () {
     // skjul alle, også dem der tidligere var vist
     $("section").hide();
+    $(".wrapper").hide();
     // Vis den section som svarer til det menupunkt man trykkede på
     $("#section-id-"+$(this).attr("data-section-id")).show();
 });
